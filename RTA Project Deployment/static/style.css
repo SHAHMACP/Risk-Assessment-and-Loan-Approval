@@ -1,0 +1,81 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+}
+
+
+.container {
+    background-color: rgba(255, 255, 255, 0);
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    
+}
+
+h1 {
+    text-align: center;
+    color: #3f51b5;
+    margin-bottom: 30px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+input, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    border-color: #3f51b5;
+    outline: none;
+}
+
+.submit-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+input[type="submit"] {
+    background-color: #3f51b5;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #303f9f;
+}
+
+.result {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+    color: #d32f2f;
+    font-weight: bold;
+}

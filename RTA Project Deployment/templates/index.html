@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Prediction App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Approval Predictor</h1>
+        <form action="{{ url_for('index') }}" method="POST">
+            <div class="form-grid">
+                <!-- Non-backend fields -->
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" name="UserName" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" name="UserEmail" placeholder="example@email.com">
+                </div>
+
+                <!-- Actual model fields start below (same names used in app.py) -->
+                <div class="form-group">
+                    <label>Age:</label>
+                    <input type="number" name="Age" required>
+                </div>
+                <div class="form-group">
+                    <label>Credit Score:</label>
+                    <input type="number" name="CreditScore" required>
+                </div>
+                <div class="form-group">
+                    <label>Employment Status:</label>
+                    <select name="EmploymentStatus" required>
+                        <option>Unemployed</option>
+                        <option>Self-Employed</option>
+                        <option>Employed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Education Level:</label>
+                    <select name="EducationLevel" required>
+                        <option>High School</option>
+                        <option>Associate</option>
+                        <option>Bachelor</option>
+                        <option>Master</option>
+                        <option>Doctorate</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Loan Amount:</label>
+                    <input type="number" step="0.01" name="LoanAmount" required>
+                </div>
+                <div class="form-group">
+                    <label>Loan Duration (months):</label>
+                    <input type="number" name="LoanDuration" required>
+                </div>
+                <div class="form-group">
+                    <label>Interest Rate (%):</label>
+                    <input type="number" step="0.01" name="InterestRate" required>
+                </div>
+                <div class="form-group">
+                    <label>Credit Card Utilization Rate:</label>
+                    <input type="number" step="0.01" name="CreditCardUtilizationRate" required>
+                </div>
+                <div class="form-group">
+                    <label>Bankruptcy History:</label>
+                    <select name="BankruptcyHistory" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Previous Loan Defaults:</label>
+                    <select name="PreviousLoanDefaults" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Length of Credit History (years):</label>
+                    <input type="number" name="LengthOfCreditHistory" required>
+                </div>
+                <div class="form-group">
+                    <label>Monthly Income:</label>
+                    <input type="number" step="0.01" name="MonthlyIncome" required>
+                </div>
+                <div class="form-group">
+                    <label>Net Worth:</label>
+                    <input type="number" step="0.01" name="NetWorth" required>
+                </div>
+            </div>
+
+            <div class="submit-container">
+                <input type="submit" value="Predict">
+            </div>
+        </form>
+
+        <div class="result">
+            {% if prediction %}
+                <h3 class="result" style="color: {{ color }};">{{ prediction.replace('\n', '<br>') | safe }}</h3>
+            {% endif %}
+
+        </div>
+    </div>
+</body>
+</html>
